@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> NFL Leaderboard</title>
+  </head>
+
+  <h1>Standings<h1>
+    <body>
+      <p>Win Loss Record</p>
+        <ol><% @team_record.each do |key, value| %>
+          <li><%= key %>: <%= value[:wins] %> - <%= value[:losses] %>
+          </li>
+         <% end %>
+        </ol>
+    </body>
+</html>
