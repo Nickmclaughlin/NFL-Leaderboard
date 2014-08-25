@@ -42,15 +42,16 @@ scoreboard =
 team_record = Hash.new
 
 scoreboard.each do |row|
-    if team_record.has_key?(row[:home_team])
-      team_record[row[:home_team]] = Hash.new
-      team_record[row[:home_team]][:wins] = 0
-      team_record[row[:home_team]][:losses] = 0
-    else team_record.has_key?(row[:away_team])
-      team_record[row[:away_team]] = Hash.new
-      team_record[row[:away_team]][:wins] = 0
-      team_record[row[:away_team]][:losses] = 0
-    end
+  if !team_record.has_key?(row[:home_team])
+    team_record[row[:home_team]] = Hash.new
+    team_record[row[:home_team]][:wins] = 0
+    team_record[row[:home_team]][:losses] = 0
+  end
+  if !team_record.has_key?(row[:away_team])
+    team_record[row[:away_team]] = Hash.new
+    team_record[row[:away_team]][:wins] = 0
+    team_record[row[:away_team]][:losses] = 0
+  end
 end
 
 scoreboard.each do |row|
